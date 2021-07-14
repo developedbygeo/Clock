@@ -1,0 +1,65 @@
+header {
+  height: 5vh;
+  background: lightblue;
+  .logo-header {
+    @include flex(center, center, row);
+    height: 100%;
+    width: 95%;
+    margin: auto;
+  }
+}
+main {
+  height: 95vh;
+  width: 95%;
+  margin: auto;
+}
+.current {
+  height: 60vh;
+  @include grid(0.5fr 1fr 0.5fr, 1);
+}
+.intro {
+  grid-area: 2/1/2/2;
+  text-align: center;
+  background: lightcoral;
+  height: 80%;
+  width: 100%;
+  margin: auto;
+  @include flex(center, center, row);
+}
+.current-clock {
+  height: 60vh;
+  background: lightpink;
+  grid-area: 2/2/2/3;
+  @include flex(center, center, column);
+}
+.clock {
+  height: 96%;
+  width: 60%;
+  border-radius: 100%;
+  scale: 0.8;
+  background: lightseagreen;
+}
+
+.other-tz {
+  height: 35vh;
+  @include grid(0.5fr 1fr 0.5fr, 0.75fr 1fr);
+}
+.selected {
+  grid-area: 1/2/1/3;
+  text-align: center;
+  align-self: center;
+  p {
+    margin-top: 2rem;
+  }
+}
+.select-wrapper {
+  grid-area: 2/2/2/3;
+  @include grid(repeat(2, 1fr), 1);
+}
+.drop-down-area,
+.drop-down-city {
+  @include flex(space-evenly, center, column);
+  height: 80%;
+  width: 100%;
+  margin: auto;
+}
