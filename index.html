@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- TODO Add favicons, Fonts -->
+    <title>Clock | Time WorldWide</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo-header">
+        <h1>World Clock | Timezone Calculator</h1>
+      </div>
+    </header>
+    <main>
+      <section class="current">
+        <div class="intro">
+          <h2>Your local time is:</h2>
+          <span class="local-time-span"></span>
+        </div>
+        <div class="current-clock">
+          <div class="clock"></div>
+        </div>
+      </section>
+      <section class="other-tz">
+        <div class="selected">
+          <h2 class="select-tz">Looking for another timezone?</h2>
+          <p>Select it from the drop-down menu</p>
+        </div>
+        <div class="select-wrapper">
+          <div class="drop-down-area">
+            <label for="area">Select the continent</label>
+            <select name="area" id="area">
+              <option value="america">America</option>
+              <option value="europe">Europe</option>
+              <option value="asia">Asia</option>
+              <option value="australia">Australia</option>
+            </select>
+          </div>
+          <div class="drop-down-city">
+            <label for="city">Select the city/timezone</label>
+            <select name="city" id="city">
+              <option value="athens">Athens, GMT +3</option>
+              <!-- Will dynamically generate the options through js loop -->
+            </select>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
