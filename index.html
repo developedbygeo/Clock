@@ -21,16 +21,37 @@
     </header>
     <main>
       <section class="current">
-        <div class="intro">
-          <h2>Your local time is:</h2>
-          <span class="local-time-span"></span>
-        </div>
-        <div class="current-clock">
-          <div class="clock"></div>
+        <div class="wrapper">
+          <div class="clock-numbered">
+            <div class="time-wrap">
+              <span class="hours-current">10</span>
+              <span class="delimiter">:</span>
+              <span class="minutes-current">20</span>
+              <span class="delimiter">:</span>
+              <span class="seconds-current">49</span>
+            </div>
+            <div class="info-wrap">
+              <p>Your Local Time (LT)</p>
+            </div>
+          </div>
+          <div class="selected-clock clock-numbered">
+            <div class="time-wrap selected-tz-clock">
+              <span class="hours-selected">10</span>
+              <span class="delimiter">:</span>
+              <span class="minutes-selected">20</span>
+              <span class="delimiter">:</span>
+              <span class="seconds-selected">49</span>
+            </div>
+            <div class="info-wrap info-wrap-selected">
+              <p class="selected-tz">
+                Time in <span class="selected-tz-info"></span>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
       <section class="other-tz">
-        <div class="selected">
+        <!-- <div class="selected">
           <h2 class="select-tz">Looking for another timezone?</h2>
           <p>Select it from the drop-down menu</p>
         </div>
@@ -51,8 +72,31 @@
               <!-- Will dynamically generate the options through js loop -->
             </select>
           </div>
+        </div> -->
+        <div class="clock-cst">
+          <div class="clock">
+            <div class="outer">
+              <div class="line line1"></div>
+              <div class="line line2"></div>
+              <div class="line line3"></div>
+              <div class="line line4"></div>
+            </div>
+            <div class="inner"></div>
+          </div>
+        </div>
+        <div class="clock-est">
+          <div class="clock">
+            <div class="outer">
+              <div class="line line1"></div>
+              <div class="line line2"></div>
+              <div class="line line3"></div>
+              <div class="line line4"></div>
+            </div>
+            <div class="inner"></div>
+          </div>
         </div>
       </section>
     </main>
+    <script defer src="./app.js"></script>
   </body>
 </html>
