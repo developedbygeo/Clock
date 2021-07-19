@@ -28,6 +28,7 @@ function current() {
       (currentSeconds.innerText = seconds);
   }, 0);
 }
+// TODO fix gmt function as it is hardcoded (-3) for GMT+3
 function gmt() {
   selectedInfoText.innerText = "Greenwich Mean Time (UTC)";
   update = setInterval(function () {
