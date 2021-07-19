@@ -110,14 +110,16 @@ main {
   position: absolute;
   width: 0.5rem;
   height: 100%;
-  background: #bb3e03;
+  background: #5390d9;
   z-index: 0;
   left: 49%;
 }
+// quarter lines
 .line {
-  width: 2.5px;
-  background: #f7ede23f;
+  width: 1.5px;
+  background: #696666;
 }
+// yx axis for lines
 .line1 {
   -webkit-transform: rotate(30deg);
   -moz-transform: rotate(30deg);
@@ -149,6 +151,46 @@ main {
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
   z-index: 1;
+}
+// inner circle
+.inner::before {
+  content: "";
+  position: absolute;
+  top: 47%;
+  right: 48%;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 100%;
+  background: #2a3033;
+  z-index: 20;
+}
+// clock hands
+.hand {
+  z-index: 19;
+  position: absolute;
+  right: 50%;
+  top: 50%;
+  height: 0.7rem;
+  width: 50%;
+  background: #4c5458;
+  border-radius: 1rem;
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition-timing-function: cubic-bezier(0.11, 2.7, 0.59, 1.01);
+}
+.hour-hand {
+  width: 30%;
+  z-index: 4;
+}
+.minute-hand {
+  height: 0.6rem;
+  width: 40%;
+  z-index: 10;
+}
+.second-hand {
+  background: #72efdd;
+  width: 45%;
+  height: 0.3rem;
 }
 
 .select-wrapper {
