@@ -4,6 +4,17 @@ const currentSeconds = document.querySelector(".seconds-current");
 const utcHour = document.querySelector(".hours-selected");
 const utcMinutes = document.querySelector(".minutes-selected");
 const utcSeconds = document.querySelector(".seconds-selected");
+// Analog clock hands
+const handHourEDT = document.querySelector(".hour-hand-edt");
+const handMinEDT = document.querySelector(".minute-hand-edt");
+const handSecEDT = document.querySelector(".second-hand-edt");
+const handHourJST = document.querySelector(".hour-hand-jst");
+const handMinJST = document.querySelector(".minute-hand-jst");
+const handSecJST = document.querySelector(".second-hand-jst");
+// Displays
+const displayEDT = document.querySelector(".edt-time-now");
+const displayJST = document.querySelector(".jst-time-now");
+// Drop-down
 const selectedInfoText = document.querySelector(".selected-tz-info");
 const dropDownAreas = document.querySelectorAll("#area option");
 const dropDownCities = document.querySelector("#city");
@@ -18,12 +29,6 @@ europeTimezoneSelections = {
   3: "Athens, Bucharest (GMT +03:00)",
 };
 
-// let currentTime = DateTime.local()
-//   .toLocaleString(DateTime.TIME_24_WITH_SECONDS)
-//   .split(":")
-//   .join("");
-// console.log(currentTime.substring(0, 2));
-
 function current() {
   update = setInterval(function () {
     let currentTime = DateTime.local()
@@ -33,7 +38,7 @@ function current() {
     (currentHour.innerText = currentTime.substring(0, 2)),
       (currentMinutes.innerText = currentTime.substring(2, 4)),
       (currentSeconds.innerText = currentTime.substring(4, 6));
-  }, 0);
+  }, 1000);
 }
 function utc() {
   update = setInterval(function () {
@@ -44,46 +49,56 @@ function utc() {
     (utcHour.innerText = currentUTC.substring(0, 2)),
       (utcMinutes.innerText = currentUTC.substring(2, 4)),
       (utcSeconds.innerText = currentUTC.substring(4, 6));
-  }, 0);
+  }, 1000);
 }
 
-// function current() {
-//   update = setInterval(function () {
-//     let currentTime = new Date();
-//     let hours = currentTime.getHours();
-//     let minutes = currentTime.getMinutes();
-//     let seconds = currentTime.getSeconds();
-//     (currentHour.innerText = hours),
-//       (currentMinutes.innerText = minutes),
-//       (currentSeconds.innerText = seconds);
-//   }, 0);
-// }
-// // TODO fix gmt function as it is hardcoded (-3) for GMT+3
-// function gmt() {
-//   selectedInfoText.innerText = "Greenwich Mean Time (UTC)";
-//   update = setInterval(function () {
-//     let currentTime = new Date();
-//     let hours = currentTime.getHours() - 3;
-//     let minutes = currentTime.getMinutes();
-//     let seconds = currentTime.getSeconds();
-//     (selectedHour.innerText = hours),
-//       (selectedMinutes.innerText = minutes),
-//       (selectedSeconds.innerText = seconds);
-//   }, 0);
-// }
+function edt() {
+  update = setInterval(function () {
+    const currentEDT = DateTime.now().setZone("America/New_York");
+    const currentEDTString = currentEDT.toLocaleString(
+      DateTime.TIME_24_WITH_SECONDS
+    );
+    const seconds = currentEDT.second;
+    const minutes = currentEDT.minute;
+    const hours = currentEDT.hour;
+    // divided by 60 due to 60 sec = 1 min, multiplied by 360 due to the 360-deg for the circle
+    // and added
+    const secondDeg = (seconds / 60) * 360 + 90;
+    // minute-hand is same but correlated to the second-hand
+    const minuteDeg = (minutes / 60) * 360 + (seconds / 60) * 6 + 90;
+    // hour-hand is same but correlated to the minute-hand
+    const hourDeg = (hours / 12) * 360 + (minutes / 60) * 30 + 90;
+    handSecEDT.style.transform = `rotate(${secondDeg}deg)`;
+    handMinEDT.style.transform = `rotate(${minuteDeg}deg)`;
+    handHourEDT.style.transform = `rotate(${hourDeg}deg)`;
+    displayEDT.innerText = currentEDTString;
+  }, 1000);
+}
+edt();
 
-// function euSelectedTZ(value) {
-//   selectedInfoText.innerText = "Greenwich Mean Time (GMT +0)";
-//   update = setInterval(function () {
-//     let currentTime = new Date();
-//     let hours = currentTime.getHours() + value;
-//     let minutes = currentTime.getMinutes();
-//     let seconds = currentTime.getSeconds();
-//     (selectedHour.innerText = hours),
-//       (selectedMinutes.innerText = minutes),
-//       (selectedSeconds.innerText = seconds);
-//   }, 0);
-// }
+function jst() {
+  update = setInterval(function () {
+    const currentJST = DateTime.now().setZone("Asia/Tokyo");
+    const currentJSTString = currentJST.toLocaleString(
+      DateTime.TIME_24_WITH_SECONDS
+    );
+    const seconds = currentJST.second;
+    const minutes = currentJST.minute;
+    const hours = currentJST.hour;
+    // divided by 60 due to 60 sec = 1 min, multiplied by 360 due to the 360-deg for the circle
+    // and added
+    const secondDeg = (seconds / 60) * 360 + 90;
+    // minute-hand is same but correlated to the second-hand
+    const minuteDeg = (minutes / 60) * 360 + (seconds / 60) * 6 + 90;
+    // hour-hand is same but correlated to the minute-hand
+    const hourDeg = (hours / 12) * 360 + (minutes / 60) * 30 + 90;
+    handSecJST.style.transform = `rotate(${secondDeg}deg)`;
+    handMinJST.style.transform = `rotate(${minuteDeg}deg)`;
+    handHourJST.style.transform = `rotate(${hourDeg}deg)`;
+    displayJST.innerText = currentJSTString;
+  }, 1000);
+}
+jst();
 
 // function prepareSearch() {
 //   dropDownAreas.forEach((area) =>
