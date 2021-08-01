@@ -4,19 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./styles/style.css" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./styles/style.css" />
     <!-- TODO Add favicons, Fonts -->
     <title>Clock | Time WorldWide</title>
   </head>
   <body>
     <header>
       <div class="logo-header">
-        <h1>World Clock | Timezone Calculator</h1>
+        <h1>Clock App</h1>
+        <div class="burger">
+          <div class="burgerline burgerline1"></div>
+          <div class="burgerline burgerline2"></div>
+          <div class="burgerline burgerline3"></div>
+        </div>
       </div>
     </header>
     <main>
@@ -31,7 +37,7 @@
               <span class="seconds-current">49</span>
             </div>
             <div class="info-wrap">
-              <p>Your Local Time (LT)</p>
+              <p>Local Time</p>
             </div>
           </div>
           <div class="selected-clock clock-numbered">
@@ -44,35 +50,13 @@
             </div>
             <div class="info-wrap info-wrap-selected">
               <p class="selected-tz">
-                Time in <span class="selected-tz-info"></span>
+                UTC<span class="selected-tz-info"></span>
               </p>
             </div>
           </div>
         </div>
       </section>
       <section class="other-tz">
-        <!-- <div class="selected">
-          <h2 class="select-tz">Looking for another timezone?</h2>
-          <p>Select it from the drop-down menu</p>
-        </div>
-        <div class="select-wrapper">
-          <div class="drop-down-area">
-            <label for="area">Select the continent</label>
-            <select name="area" id="area">
-              <option value="america">America</option>
-              <option value="europe">Europe</option>
-              <option value="asia">Asia</option>
-              <option value="australia">Australia</option>
-            </select>
-          </div>
-          <div class="drop-down-city">
-            <label for="city">Select the city/timezone</label>
-            <select name="city" id="city">
-              <option value="athens">Athens, GMT +3</option>
-              <!-- Will dynamically generate the options through js loop -->
-            </select>
-          </div>
-        </div> -->
         <div class="clock-cst">
           <div class="clock">
             <div class="outer">
@@ -103,8 +87,11 @@
             </div>
           </div>
         </div>
+        <div class="text-wrapper"><p>New York (EDT)</p></div>
+        <div class="text-wrapper"><p>Tokyo (JST)</p></div>
       </section>
     </main>
+    <footer><p>George Anagnostou yolo GitHub Link</p></footer>
     <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.1/build/global/luxon.min.js"></script>
     <script defer src="./app.js"></script>
   </body>
