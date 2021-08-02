@@ -19,15 +19,28 @@ const selectedInfoText = document.querySelector(".selected-tz-info");
 const dropDownAreas = document.querySelectorAll("#area option");
 const dropDownCities = document.querySelector("#city");
 const DateTime = luxon.DateTime;
+// Menu
+const burgerToggle = document.querySelector(".burger");
+const areaWrapper = document.querySelector(".header-wrapper");
+const headerWrapper = document.querySelector(".area-wrapper");
+const logoHeader = document.querySelector(".logo-header");
 
 window.addEventListener("load", current);
-window.addEventListener("load", utc);
+window.addEventListener("load", gmt);
+
+burgerToggle.addEventListener("click", openMenu);
 
 europeTimezoneSelections = {
   1: "London, Dublin, Lisbon (GMT +01:00)",
   2: "Paris, Berlin, Rome, Madrid (GMT +02:00)",
   3: "Athens, Bucharest (GMT +03:00)",
 };
+
+function openMenu() {
+  areaWrapper.classList.toggle("nav-full-active");
+  headerWrapper.classList.toggle("nav-full-active");
+  logoHeader.classList.toggle("logo-header-inactive");
+}
 
 function current() {
   update = setInterval(function () {
@@ -40,9 +53,10 @@ function current() {
       (currentSeconds.innerText = currentTime.substring(4, 6));
   }, 1000);
 }
-function utc() {
+function gmt() {
   update = setInterval(function () {
-    let currentUTC = DateTime.utc()
+    let currentUTC = DateTime.now()
+      .setZone("Europe/London")
       .toLocaleString(DateTime.TIME_24_WITH_SECONDS)
       .split(":")
       .join("");
