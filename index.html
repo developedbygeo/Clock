@@ -26,58 +26,78 @@
         <div class="logo-header">
           <h1>Clock App</h1>
         </div>
-        <ul class="area-wrapper nav-full">
-          <div class="header-wrapper nav-full">
+        <div class="area-wrapper nav-full">
+          <div class="header-wrapper">
             <h1>Looking for another timezone?</h1>
             <p>Browse through the following sections</p>
           </div>
-          <li><a href="#">Europe</a></li>
-          <div class="options">
-            <select name="europe-tz" id="europe-tz">
-              <option value="Reykjavik">Reykjavik</option>
-              <option value="Paris">Dublin, Lisbon, London (BST)</option>
-              <option value="Athens">
-                Tirana, Vienna, Brussels, Copenhagen (CEST)
-              </option>
-              <option value="Athens">
-                Athens, Bucharest, Moscow, Sofia (EEST)
-              </option>
-              <option value="Tbilisi">Tbilisi (GET)</option>
-            </select>
+          <div class="option-area europe">
+            <a class="region-selector" href="#">Europe</a>
+            <div class="options">
+              <select name="europe-tz" id="europe-tz">
+                <option class="selected-option" value="Reykjavik">
+                  Reykjavik
+                </option>
+                <option class="selected-option" value="Paris">
+                  Dublin, Lisbon, London (BST)
+                </option>
+                <option class="selected-option" value="Athens">
+                  Tirana, Vienna, Brussels, Copenhagen (CEST)
+                </option>
+                <option class="selected-option" value="Athens">
+                  Athens, Bucharest, Moscow, Sofia (EEST)
+                </option>
+                <option class="selected-option" value="Tbilisi">
+                  Tbilisi (GET)
+                </option>
+              </select>
+            </div>
           </div>
-          <li><a href="#">America</a></li>
-          <div class="options">
-            <select name="america-tz" id="america-tz">
-              <option value="LA">
-                Los Angeles, Las Vegas, San Fransisco, Vancouver (PDT)
-              </option>
-              <option value="Dallas">
-                Chicago, Dallas, Houston, Winnipeg (CDT)
-              </option>
-              <option value="Miami">
-                Atlanta, Miami, Washington DC, Boston, Detroit (EDT)
-              </option>
-              <option value="Rio">
-                Hamilton, Halifax, Saint-John (CA-NB) (ADT)
-              </option>
-            </select>
+          <div class="option-area america">
+            <a class="region-selector" href="#">America</a>
+            <div class="options">
+              <select name="america-tz" id="america-tz">
+                <option class="selected-option" value="LA">
+                  Los Angeles, Las Vegas, San Fransisco, Vancouver (PDT)
+                </option>
+                <option class="selected-option" value="Dallas">
+                  Chicago, Dallas, Houston, Winnipeg (CDT)
+                </option>
+                <option class="selected-option" value="Miami">
+                  Atlanta, Miami, Washington DC, Boston, Detroit (EDT)
+                </option>
+                <option class="selected-option" value="Rio">
+                  Hamilton, Halifax, Saint-John (CA-NB) (ADT)
+                </option>
+              </select>
+            </div>
           </div>
-          <li><a href="#">Other Regions</a></li>
-          <div class="options">
-            <select name="other-regions" id="other-regions">
-              <option value="Kabul">Kabul, Tehran</option>
-              <option value="Kolkata">
-                Islamabad, Karachi, New Delhi, Kolkata (IST)
-              </option>
-              <option value="Bangkok">Bangkok, Hanoi, Ho Chi Minh (ICT)</option>
-              <option value="Beijing">
-                Beijing, Shangai, Hong Kong, Tokyo, Singapore
-              </option>
-              <option value="Brisbane">Brisbane, Sydney, Melbourne</option>
-              <option value="Auckland">Auckland, Anadyr, Kiritimati</option>
-            </select>
+          <div class="option-area others">
+            <a class="region-selector" href="#">Other Regions</a>
+            <div class="options">
+              <select name="other-regions" id="other-regions">
+                <option class="selected-option" value="Kabul">
+                  Kabul, Tehran
+                </option>
+                <option class="selected-option" value="Kolkata">
+                  Islamabad, Karachi, New Delhi, Kolkata (IST)
+                </option>
+                <option class="selected-option" value="Bangkok">
+                  Bangkok, Hanoi, Ho Chi Minh (ICT)
+                </option>
+                <option class="selected-option" value="Beijing">
+                  Beijing, Shangai, Hong Kong, Tokyo, Singapore
+                </option>
+                <option class="selected-option" value="Brisbane">
+                  Brisbane, Sydney, Melbourne
+                </option>
+                <option class="selected-option" value="Auckland">
+                  Auckland, Anadyr, Kiritimati
+                </option>
+              </select>
+            </div>
           </div>
-        </ul>
+        </div>
         <div class="selected-timezone">
           <label for="europe-tz"></label>
         </div>
