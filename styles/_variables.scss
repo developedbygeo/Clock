@@ -1,11 +1,18 @@
-@mixin flex($justify, $align, $dir){
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
-    flex-direction: $dir;
+$dark-slate-gray: #2d5359;
+$ming: #21626e;
+$seaweed: #088196;
+$middle-blue: #5fc7d9;
+$jet: #353535;
+$gainsboro: #d9d9d9;
+
+@mixin flex($justify, $align, $dir) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $dir;
 }
-@mixin grid($columns, $rows){
-    display: grid;
-    grid-template-columns: $columns;
-    grid-template-rows: $rows;
+@mixin grid($columns, $rows) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
 }
