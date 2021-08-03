@@ -41,11 +41,124 @@ regionSelection.forEach((region) =>
     console.log(options);
     options.forEach((option) =>
       option.addEventListener("click", (e) => {
-        console.log(e.target.value);
+        const area = e.target.value;
+        console.log(area);
+        const zoneMenu = option.parentElement.name;
+        let zone;
+        switch (zoneMenu) {
+          case "europe-tz":
+            if (area == "Reykjavik") {
+              zone = "Atlantic";
+              break;
+            } else if (area == "Tbilisi") {
+              zone = "Asia";
+              break;
+            } else {
+              zone = "Europe";
+              break;
+            }
+          case "america-tz":
+            zone = "America";
+            break;
+          case "other-regions":
+            if (area == "Auckland") {
+              zone = "Pacific";
+            } else if (area == "Brisbane") {
+              zone = "Australia";
+            } else {
+              zone = "Asia";
+            }
+        }
+        console.log(zone);
+        // TODO add clear function to solve re-writing bug due to interval
+        createElements();
+        adjustLayout();
+        selectedTimezone(zone, area);
       })
     );
   })
 );
+
+function createElements() {
+  const hourWrapper = document.querySelector(".wrapper");
+  // new elements
+  const newDiv = document.createElement("div");
+  const newDivTimeWrap = document.createElement("div");
+  const newDivInfoWrap = document.createElement("div");
+  const infoParagraph = document.createElement("p");
+  const spanHours = document.createElement("span");
+  const delimiterHours = document.createElement("span");
+  const delimiterMinutes = document.createElement("span");
+  const spanMinutes = document.createElement("span");
+  const spanSeconds = document.createElement("span");
+  //
+  hourWrapper.appendChild(newDiv);
+  newDiv.classList = "new-clock clock-numbered";
+  newDivTimeWrap.classList = "time-wrap new-tz-clock";
+  newDivInfoWrap.classList = "info-wrap info-wrap-selected";
+  infoParagraph.classList = "new-tz";
+  newDiv.appendChild(newDivTimeWrap);
+  newDiv.appendChild(newDivInfoWrap);
+  newDivInfoWrap.appendChild(infoParagraph);
+  spanHours.classList = "hours-new";
+  spanMinutes.classList = "minutes-new";
+  spanSeconds.classList = "seconds-new";
+  delimiterHours.classList = delimiterMinutes.classList = "delimiter";
+  delimiterHours.innerText = delimiterMinutes.innerText = ":";
+  newDivTimeWrap.appendChild(spanHours);
+  newDivTimeWrap.appendChild(delimiterHours);
+  newDivTimeWrap.appendChild(spanMinutes);
+  newDivTimeWrap.appendChild(delimiterMinutes);
+  newDivTimeWrap.appendChild(spanSeconds);
+}
+function adjustLayout() {
+  const hourWrapper = document.querySelector(".wrapper");
+  hourWrapper.style.gridTemplateRows = "1fr 1fr 1fr";
+}
+
+// function selectedTimezone(zone, area) {
+//   const selectedHour = document.querySelector(".hours-new");
+//   const selectedMinutes = document.querySelector(".minutes-new");
+//   const selectedSeconds = document.querySelector(".seconds-new");
+//   const timezoneText = document.querySelector(".new-tz");
+//   update = setInterval(function () {
+//     const selectedTZ = DateTime.now()
+//       .setZone(`${zone}/${area}`)
+//       .toLocaleString(DateTime.TIME_24_WITH_SECONDS)
+//       .split(":")
+//       .join("");
+//     const hours = selectedTZ.substring[0,2];
+//     const minutes = selectedTZ.substring[2,4];
+//     const seconds = selectedTZ.substring[4,6];
+//     (selectedHour.innerText = selectedTZ.substring(0, 2)),
+//       (selectedMinutes.innerText = selectedTZ.substring(2, 4)),
+//       (selectedSeconds.innerText = selectedTZ.substring(4, 6));
+//   }, 1000);
+//   timezoneText.innerText = `${area}, ${zone}`;
+// }
+function selectedTimezone(zone, area) {
+  const selectedHour = document.querySelector(".hours-new");
+  const selectedMinutes = document.querySelector(".minutes-new");
+  const selectedSeconds = document.querySelector(".seconds-new");
+  const timezoneText = document.querySelector(".new-tz");
+  update = setInterval(function () {
+    const currentSelectedTZ = DateTime.now().setZone(`${zone}/${area}`);
+    const currentSelectedTZString = currentSelectedTZ
+      .toLocaleString(DateTime.TIME_24_WITH_SECONDS)
+      .split(":")
+      .join("");
+    // selectedHour.innerText = currentSelectedTZ.hour;
+    // selectedMinutes.innerText = currentSelectedTZ.minute;
+    // selectedSeconds.innerText = currentSelectedTZ.second;
+    selectedHour.innerText = currentSelectedTZString.substring(0, 2);
+    selectedMinutes.innerText = currentSelectedTZString.substring(2, 4);
+    selectedSeconds.innerText = currentSelectedTZString.substring(4, 6);
+    // console.log(currentSelectedTZString.substring(0, 2));
+
+    // console.log(currentSelectedTZ.hour);
+  }, 1000);
+  timezoneText.innerText = `${area}, ${zone}`;
+}
 
 europeTimezoneSelections = {
   1: "London, Dublin, Lisbon (GMT +01:00)",
