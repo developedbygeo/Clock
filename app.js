@@ -15,9 +15,8 @@ const handSecJST = document.querySelector(".second-hand-jst");
 const displayEDT = document.querySelector(".edt-time-now");
 const displayJST = document.querySelector(".jst-time-now");
 // Drop-down
-const selectedInfoText = document.querySelector(".selected-tz-info");
-const dropDownAreas = document.querySelectorAll("#area option");
-const dropDownCities = document.querySelector("#city");
+const regionSelection = document.querySelectorAll(".region-selector");
+// Library
 const DateTime = luxon.DateTime;
 // Menu
 const burgerToggle = document.querySelector(".burger");
@@ -29,6 +28,24 @@ window.addEventListener("load", current);
 window.addEventListener("load", gmt);
 
 burgerToggle.addEventListener("click", openMenu);
+
+regionSelection.forEach((region) =>
+  region.addEventListener("click", () => {
+    // const wrapperDiv = region.nextElementSibling;
+    // // wrapperDiv.firstElementChild.classList.toggle("options-active");
+    const selectedMenu = region.nextElementSibling;
+    const selectedDropdownOptions = selectedMenu.firstElementChild.options;
+    selectedMenu.classList.toggle("options-active");
+    console.log(selectedDropdownOptions);
+    const options = document.querySelectorAll(".selected-option");
+    console.log(options);
+    options.forEach((option) =>
+      option.addEventListener("click", (e) => {
+        console.log(e.target.value);
+      })
+    );
+  })
+);
 
 europeTimezoneSelections = {
   1: "London, Dublin, Lisbon (GMT +01:00)",
