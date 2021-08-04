@@ -23,16 +23,18 @@ const burgerToggle = document.querySelector(".burger");
 const areaWrapper = document.querySelector(".header-wrapper");
 const headerWrapper = document.querySelector(".area-wrapper");
 const logoHeader = document.querySelector(".logo-header");
+// Interval
+let live;
 
 window.addEventListener("load", current);
 window.addEventListener("load", gmt);
+window.addEventListener("load", edt);
+window.addEventListener("load", jst);
 
 burgerToggle.addEventListener("click", openMenu);
 
 regionSelection.forEach((region) =>
   region.addEventListener("click", () => {
-    // const wrapperDiv = region.nextElementSibling;
-    // // wrapperDiv.firstElementChild.classList.toggle("options-active");
     const selectedMenu = region.nextElementSibling;
     const selectedDropdownOptions = selectedMenu.firstElementChild.options;
     selectedMenu.classList.toggle("options-active");
@@ -41,6 +43,7 @@ regionSelection.forEach((region) =>
     console.log(options);
     options.forEach((option) =>
       option.addEventListener("click", (e) => {
+        const burgerBtn = document.querySelector(".burger");
         const area = e.target.value;
         console.log(area);
         const zoneMenu = option.parentElement.name;
@@ -63,21 +66,45 @@ regionSelection.forEach((region) =>
           case "other-regions":
             if (area == "Auckland") {
               zone = "Pacific";
+              break;
             } else if (area == "Brisbane") {
               zone = "Australia";
+              break;
+            } else if (area == "Johannesburg") {
+              zone = "Africa";
+              break;
             } else {
               zone = "Asia";
+              break;
             }
         }
         console.log(zone);
-        // TODO add clear function to solve re-writing bug due to interval
+        checkSelectedTZExists();
         createElements();
         adjustLayout();
-        selectedTimezone(zone, area);
+        live = setInterval(() => {
+          selectedTimezone(zone, area);
+        }, 1000);
+        setTimeout(function () {
+          menuToggle();
+        }, 600);
       })
     );
   })
 );
+
+function checkSelectedTZExists() {
+  const newDiv = document.querySelector(".new-clock");
+  const newDivTimeWrap = document.querySelector(".new-tz-clock");
+  if (newDiv && newDivTimeWrap) {
+    newDiv.remove();
+    clearInterval(live);
+  }
+}
+function menuToggle() {
+  const burgerBtn = document.querySelector(".burger");
+  burgerBtn.click();
+}
 
 function createElements() {
   const hourWrapper = document.querySelector(".wrapper");
@@ -116,55 +143,30 @@ function adjustLayout() {
   hourWrapper.style.gridTemplateRows = "1fr 1fr 1fr";
 }
 
-// function selectedTimezone(zone, area) {
-//   const selectedHour = document.querySelector(".hours-new");
-//   const selectedMinutes = document.querySelector(".minutes-new");
-//   const selectedSeconds = document.querySelector(".seconds-new");
-//   const timezoneText = document.querySelector(".new-tz");
-//   update = setInterval(function () {
-//     const selectedTZ = DateTime.now()
-//       .setZone(`${zone}/${area}`)
-//       .toLocaleString(DateTime.TIME_24_WITH_SECONDS)
-//       .split(":")
-//       .join("");
-//     const hours = selectedTZ.substring[0,2];
-//     const minutes = selectedTZ.substring[2,4];
-//     const seconds = selectedTZ.substring[4,6];
-//     (selectedHour.innerText = selectedTZ.substring(0, 2)),
-//       (selectedMinutes.innerText = selectedTZ.substring(2, 4)),
-//       (selectedSeconds.innerText = selectedTZ.substring(4, 6));
-//   }, 1000);
-//   timezoneText.innerText = `${area}, ${zone}`;
-// }
 function selectedTimezone(zone, area) {
   const selectedHour = document.querySelector(".hours-new");
   const selectedMinutes = document.querySelector(".minutes-new");
   const selectedSeconds = document.querySelector(".seconds-new");
   const timezoneText = document.querySelector(".new-tz");
-  update = setInterval(function () {
-    const currentSelectedTZ = DateTime.now().setZone(`${zone}/${area}`);
-    const currentSelectedTZString = currentSelectedTZ
-      .toLocaleString(DateTime.TIME_24_WITH_SECONDS)
-      .split(":")
-      .join("");
-    // selectedHour.innerText = currentSelectedTZ.hour;
-    // selectedMinutes.innerText = currentSelectedTZ.minute;
-    // selectedSeconds.innerText = currentSelectedTZ.second;
-    selectedHour.innerText = currentSelectedTZString.substring(0, 2);
-    selectedMinutes.innerText = currentSelectedTZString.substring(2, 4);
-    selectedSeconds.innerText = currentSelectedTZString.substring(4, 6);
-    // console.log(currentSelectedTZString.substring(0, 2));
+  // update = setInterval(function () {
+  const currentSelectedTZ = DateTime.now().setZone(`${zone}/${area}`);
+  const currentSelectedTZString = currentSelectedTZ
+    .toLocaleString(DateTime.TIME_24_WITH_SECONDS)
+    .split(":")
+    .join("");
+  // selectedHour.innerText = currentSelectedTZ.hour;
+  // selectedMinutes.innerText = currentSelectedTZ.minute;
+  // selectedSeconds.innerText = currentSelectedTZ.second;
+  selectedHour.innerText = currentSelectedTZString.substring(0, 2);
+  selectedMinutes.innerText = currentSelectedTZString.substring(2, 4);
+  selectedSeconds.innerText = currentSelectedTZString.substring(4, 6);
+  // console.log(currentSelectedTZString.substring(0, 2));
 
-    // console.log(currentSelectedTZ.hour);
-  }, 1000);
-  timezoneText.innerText = `${area}, ${zone}`;
+  // console.log(currentSelectedTZ.hour);
+  // }, 1000);
+  const areaEdited = String(area).replace(/_/g, " ");
+  timezoneText.innerText = `${areaEdited}, ${zone}`;
 }
-
-europeTimezoneSelections = {
-  1: "London, Dublin, Lisbon (GMT +01:00)",
-  2: "Paris, Berlin, Rome, Madrid (GMT +02:00)",
-  3: "Athens, Bucharest (GMT +03:00)",
-};
 
 function openMenu() {
   areaWrapper.classList.toggle("nav-full-active");
@@ -218,7 +220,6 @@ function edt() {
     displayEDT.innerText = currentEDTString;
   }, 1000);
 }
-edt();
 
 function jst() {
   update = setInterval(function () {
@@ -242,21 +243,3 @@ function jst() {
     displayJST.innerText = currentJSTString;
   }, 1000);
 }
-jst();
-
-// function prepareSearch() {
-//   dropDownAreas.forEach((area) =>
-//     area.addEventListener("click", () => {
-//       console.log(area.value);
-//       if (area.value == "europe") {
-//         europeTimezoneSelections.forEach((selection) => {
-//           console.log(selection);
-//           let option = dropDownCities.createElement("option");
-//           dropDownCities.appendChild(selection);
-//         });
-//       }
-//     })
-//   );
-// }
-
-// prepareSearch();
