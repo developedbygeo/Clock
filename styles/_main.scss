@@ -2,22 +2,27 @@ header {
   height: 10vh;
   background: lightblue;
   .logo-header {
-    @include flex(center, center, row);
+    @include flex(flex-start, center, row);
+    font-family: "Abril Fatface", cursive;
+    font-weight: 400;
+    height: 100%;
+    margin: auto;
+    margin-left: 1.8rem;
+    letter-spacing: 0.2rem;
+  }
+  nav {
     position: relative;
     height: 100%;
-    width: 95%;
-    margin: auto;
-    letter-spacing: 0.15rem;
   }
   .burger {
     position: absolute;
-    top: 40%;
+    top: 42%;
     right: 3%;
   }
 }
 .burgerline {
-  width: 1.5rem;
-  height: 0.3rem;
+  width: 2rem;
+  height: 0.4rem;
   background: black;
   margin-bottom: 0.2rem;
   pointer-events: none;
@@ -44,15 +49,15 @@ main {
 }
 .wrapper {
   height: 100%;
-  width: 95vw;
+  width: 100%;
   margin: auto;
-  background: lightpink;
+  // background: lightpink;
   grid-area: 1/2/2/3;
   @include grid(1, repeat(2, 1fr));
 }
 .clock-numbered {
   height: 100%;
-  width: 100%;
+  width: 100vw;
   text-align: center;
   @include flex(center, center, column);
   .info-wrap {
@@ -62,18 +67,14 @@ main {
   }
 }
 .time-wrap {
-  width: 100%;
+  width: 75%;
   height: 40%;
+  margin-inline: auto;
   @include flex(space-evenly, center, row);
   span {
     font-size: 4rem;
   }
 }
-// .selected-tz-clock,
-// .info-wrap-selected {
-//   display: none;
-// }
-
 .other-tz {
   height: 35vh;
   @include grid(repeat(2, 1fr), 1fr 0.3fr);
@@ -87,20 +88,20 @@ main {
     margin-top: 2rem;
   }
 }
-.clock-cst,
-.clock-est {
+.clock-edt,
+.clock-jst {
   @include flex(center, center, row);
   background: black;
 }
-.clock-cst {
-  grid-area: 1/1/1/2;
+.clock-jst {
+  grid-area: 1/2/1/2;
 }
 .clock-est {
   grid-area: 1/2/1/2;
 }
 .clock {
-  width: 15rem;
-  height: 15rem;
+  width: 19rem;
+  height: 19rem;
   background: #212529;
   border-radius: 50%;
   border: 4px solid #2a3035;
@@ -127,7 +128,7 @@ main {
 .line {
   content: "";
   position: absolute;
-  width: 0.5rem;
+  width: 0.25rem;
   height: 100%;
   background: #5390d9;
   z-index: 0;
@@ -198,12 +199,13 @@ main {
   transition-timing-function: cubic-bezier(0.11, 2.7, 0.59, 1.01);
 }
 .hour-hand {
-  width: 30%;
+  width: 35%;
+  height: 0.45rem;
   z-index: 4;
 }
 .minute-hand {
-  height: 0.6rem;
-  width: 40%;
+  height: 0.45rem;
+  width: 45%;
   z-index: 10;
 }
 .second-hand {
@@ -231,7 +233,7 @@ footer {
   text-align: center;
   p {
     margin-top: 0.5rem;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-style: italic;
   }
 }
