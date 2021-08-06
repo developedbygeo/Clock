@@ -1,6 +1,13 @@
 header {
   height: 10vh;
-  background: lightblue;
+  background: $eerie-black;
+  background: linear-gradient(
+    180deg,
+    rgba(27, 27, 27, 1) 0%,
+    rgba(42, 42, 42, 1) 50%,
+    rgba(50, 50, 50, 1) 100%
+  );
+  color: $linen;
   .logo-header {
     @include flex(flex-start, center, row);
     font-family: "Abril Fatface", cursive;
@@ -23,7 +30,7 @@ header {
 .burgerline {
   width: 2rem;
   height: 0.4rem;
-  background: black;
+  background: $linen;
   margin-bottom: 0.2rem;
   pointer-events: none;
 }
@@ -36,7 +43,7 @@ main {
   height: 50vh;
   width: 100%;
   @include grid(0.5fr 1fr 0.5fr, 1);
-  background: lightpink;
+  background: $jet;
 }
 .intro {
   grid-area: 2/1/2/2;
@@ -64,9 +71,12 @@ main {
     margin-top: 1rem;
     font-size: 1.4rem;
     font-style: italic;
+    color: $lighter-orange;
+    letter-spacing: 0.1rem;
   }
 }
 .time-wrap {
+  color: $linen;
   width: 75%;
   height: 40%;
   margin-inline: auto;
@@ -78,7 +88,7 @@ main {
 .other-tz {
   height: 35vh;
   @include grid(repeat(2, 1fr), 1fr 0.3fr);
-  background: lightpink;
+  background: $jet;
 }
 .selected {
   grid-area: 1/2/1/3;
@@ -91,7 +101,7 @@ main {
 .clock-edt,
 .clock-jst {
   @include flex(center, center, row);
-  background: black;
+  background: $jet;
 }
 .clock-jst {
   grid-area: 1/2/1/2;
@@ -104,9 +114,9 @@ main {
   height: 19rem;
   background: #212529;
   border-radius: 50%;
-  border: 4px solid #2a3035;
+  border: 4px solid $eerie-light;
   position: relative;
-  box-shadow: -6px -6px 12px rgba(67, 67, 67, 0.5),
+  box-shadow: -6px -6px 12px rgba(44, 44, 44, 0.5),
     inset 6px 6px 12px rgba(0, 0, 0, 0.5),
     inset -6px -6px 12px rgba(67, 67, 67, 0.5), 4px 4px 10px rgba(0, 0, 0, 0.3);
 }
@@ -115,7 +125,7 @@ main {
   overflow: hidden;
   width: 100%;
   height: 100%;
-  background: #212529;
+  background: $jet;
   border-radius: 100%;
 }
 .outer::after {
@@ -130,7 +140,7 @@ main {
   position: absolute;
   width: 0.25rem;
   height: 100%;
-  background: #5390d9;
+  background: $light-orange;
   z-index: 0;
   left: 49%;
 }
@@ -166,7 +176,7 @@ main {
   left: 5%;
   width: 90%;
   height: 90%;
-  background: #212529;
+  background: $jet;
   border-radius: 100%;
   -webkit-border-radius: 100%;
   -moz-border-radius: 100%;
@@ -181,7 +191,7 @@ main {
   width: 1rem;
   height: 1rem;
   border-radius: 100%;
-  background: #2a3033;
+  background: $jet-darker;
   z-index: 20;
 }
 // clock hands
@@ -192,14 +202,14 @@ main {
   top: 50%;
   height: 0.7rem;
   width: 50%;
-  background: #4c5458;
+  background: $davys-gray;
   border-radius: 1rem;
   transform-origin: 100%;
   transform: rotate(90deg);
   transition-timing-function: cubic-bezier(0.11, 2.7, 0.59, 1.01);
 }
 .hour-hand {
-  width: 35%;
+  width: 30%;
   height: 0.45rem;
   z-index: 4;
 }
@@ -209,7 +219,7 @@ main {
   z-index: 10;
 }
 .second-hand {
-  background: #72efdd;
+  background: $orange;
   width: 45%;
   height: 0.3rem;
 }
@@ -226,11 +236,20 @@ main {
   margin: auto;
 }
 footer {
-  background: lightgreen;
+  background: $eerie-black;
+  background: linear-gradient(
+    0deg,
+    rgba(40, 38, 38, 1) 0%,
+    rgba(42, 42, 42, 1) 47%,
+    rgba(50, 50, 50, 1) 100%
+  );
+  color: $linen;
   height: 5vh;
 }
 .text-wrapper {
   text-align: center;
+  color: $linen;
+  letter-spacing: 0.1rem;
   p {
     margin-top: 0.5rem;
     font-size: 1.6rem;
