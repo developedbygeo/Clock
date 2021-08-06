@@ -1,9 +1,11 @@
-$dark-slate-gray: #2d5359;
-$ming: #21626e;
-$seaweed: #088196;
-$middle-blue: #5fc7d9;
-$jet: #353535;
-$gainsboro: #d9d9d9;
+$eerie-black: #1b1b1b;
+$eerie-light: #353333;
+$jet: #323232;
+$bisque: #ffe7d0;
+$linen: #e4d7cc;
+$light-orange: #ffd5ad;
+$lighter-orange: #fadbbf;
+$orange: #fc6e20;
 
 @mixin flex($justify, $align, $dir) {
   display: flex;
