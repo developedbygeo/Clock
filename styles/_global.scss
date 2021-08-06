@@ -4,19 +4,23 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 62.5%;
+  font-size: 45.5%;
 }
-main {
+body {
   font-family: "Lato", sans-serif;
-}
-header {
-  font-family: "Abril Fatface", cursive;
+  font-weight: 400;
 }
 p,
 label,
 button {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-weight: 300;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }
 h1 {
   font-size: 2.6rem;
