@@ -13,38 +13,34 @@
   height: 100%;
 }
 .header-wrapper {
-  margin-left: 2rem;
+  margin: 0 0 2rem 2rem;
   h1,
   p {
-    color: $jet;
+    color: $linen;
   }
   h1 {
     margin-top: 2.5rem;
-    font-size: 1.6rem;
+    font-size: 2.2rem;
   }
   p {
     margin-top: 1rem;
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     font-style: italic;
     font-weight: 300;
     letter-spacing: 0.1rem;
   }
 }
 .area-wrapper {
-  // @include flex(space-evenly, center, column);
   @include grid(1fr, 0.5fr repeat(2, 1.5fr) 2fr);
-  // display: grid;
-  // grid-template-rows: 0.5fr repeat(3, 1fr);
-  // grid-template-columns: 1fr;
   position: fixed;
   left: -100%;
   z-index: 2;
   width: 100%;
   height: 100%;
-  background: white;
+  background: $jet;
   a {
     text-decoration: underline;
-    color: $dark-slate-gray;
+    color: $linen;
     font-size: 2.5rem;
     font-weight: 700;
     font-style: italic;
@@ -62,7 +58,7 @@
   i {
     pointer-events: none;
     font-size: 1.8rem;
-    color: $dark-slate-gray;
+    color: $eerie-black;
   }
 }
 .logo-header-inactive {
@@ -75,14 +71,26 @@
   margin-top: 1rem;
   select {
     width: 75%;
-    font-size: 1.3rem;
+    font-size: 1.7rem;
     outline: none;
     border: none;
     background: $jet;
     color: white;
     border-radius: 1rem;
-    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+    appearance: none;
   }
+}
+.options::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f078";
+  position: absolute;
+  color: $orange;
+  top: 46%;
+  right: 27%;
+  font-size: 1.6rem;
+  pointer-events: none;
 }
 .options-active {
   display: block;
