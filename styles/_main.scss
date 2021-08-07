@@ -17,6 +17,11 @@ header {
     margin-left: 1.8rem;
     letter-spacing: 0.2rem;
   }
+  .dot {
+    color: $orange;
+    font-size: 3rem;
+    margin-left: 0.2rem;
+  }
   nav {
     position: relative;
     height: 100%;
@@ -25,6 +30,10 @@ header {
     position: absolute;
     top: 42%;
     right: 3%;
+    transition: all 200ms ease;
+  }
+  .burger:hover {
+    transform: scale(1.2);
   }
 }
 .burgerline {
@@ -254,5 +263,24 @@ footer {
     margin-top: 0.5rem;
     font-size: 1.6rem;
     font-style: italic;
+  }
+}
+footer {
+  @include flex(center, center, row);
+}
+.footer-text {
+  letter-spacing: 0.1rem;
+  font-style: italic;
+  color: $linen;
+  .name {
+    margin-left: 0.3rem;
+  }
+}
+.footer-icon {
+  font-size: 2rem;
+  margin-left: 1rem;
+  i {
+    pointer-events: none;
+    color: $linen;
   }
 }
