@@ -24,7 +24,7 @@
     <header>
       <nav class="nav">
         <div class="logo-header">
-          <h1>Clock App</h1>
+          <h1>Clock<span class="dot">.</span></h1>
         </div>
         <div class="area-wrapper nav-full">
           <div class="header-wrapper">
@@ -64,7 +64,7 @@
                   Chicago, Dallas, Houston, Winnipeg (CDT)
                 </option>
                 <option class="selected-option" value="New_York">
-                  New York, Miami, Washington DC, Boston, Detroit (EDT)
+                  New York, Miami, Washington DC
                 </option>
                 <option class="selected-option" value="Halifax">
                   Hamilton, Halifax, Saint-John (CA-NB) (ADT)
@@ -104,7 +104,7 @@
         <div class="selected-timezone">
           <label for="europe-tz"></label>
         </div>
-        <div class="burger">
+        <div tabindex="0" class="burger">
           <div class="burgerline burgerline1"></div>
           <div class="burgerline burgerline2"></div>
           <div class="burgerline burgerline3"></div>
@@ -183,7 +183,16 @@
         </div>
       </section>
     </main>
-    <footer><p>George Anagnostou yolo GitHub Link</p></footer>
+    <footer>
+      <div class="footer-text">
+        <p>&copy;<span class="name">developedbygeo</span></p>
+      </div>
+      <div class="footer-icon">
+        <a href="https://github.com/developedbygeo"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/luxon@2.0.1/build/global/luxon.min.js"></script>
     <script defer src="./app.js"></script>
   </body>
