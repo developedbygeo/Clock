@@ -98,3 +98,21 @@
 .option-area {
   margin: 2rem 0 0 2rem;
 }
+.region-selector {
+  position: relative;
+  &::before {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    height: 0.25rem;
+    left: 50%;
+    position: absolute;
+    background: #fc6e20;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+  &:hover::before {
+    width: 100%;
+    left: 0;
+  }
+}
