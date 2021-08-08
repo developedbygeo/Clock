@@ -31,7 +31,7 @@
   }
 }
 .area-wrapper {
-  @include grid(1fr, 0.5fr repeat(2, 1.5fr) 2fr);
+  @include grid(1fr, 0.5fr repeat(4, 1.25fr) 2fr);
   position: fixed;
   left: -100%;
   z-index: 2;
@@ -70,7 +70,7 @@
   display: none;
   margin-top: 1rem;
   select {
-    width: 75%;
+    width: 90%;
     font-size: 1.7rem;
     outline: none;
     border: none;
@@ -88,7 +88,7 @@
   position: absolute;
   color: $orange;
   top: 46%;
-  right: 27%;
+  right: 15%;
   font-size: 1.6rem;
   pointer-events: none;
 }
