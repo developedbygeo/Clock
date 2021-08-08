@@ -40,6 +40,7 @@ regionSelection.forEach((region) =>
     selectedMenu.classList.toggle("options-active");
     const options = document.querySelectorAll(".selected-option");
     options.forEach((option) =>
+      // sets zone based on the area selection / select value
       option.addEventListener("click", (e) => {
         const burgerBtn = document.querySelector(".burger");
         const area = e.target.value;
@@ -58,20 +59,25 @@ regionSelection.forEach((region) =>
               break;
             }
           case "america-tz":
-            zone = "America";
-            break;
-          case "other-regions":
-            if (area == "Auckland") {
-              zone = "Pacific";
-              break;
-            } else if (area == "Brisbane") {
-              zone = "Australia";
-              break;
-            } else if (area == "Johannesburg") {
-              zone = "Africa";
+            if (area == "Buenos_Aires") {
+              zone = "America/Argentina";
               break;
             } else {
-              zone = "Asia";
+              zone = "America";
+              break;
+            }
+          case "africa-tz":
+            zone = "Africa";
+            break;
+          case "asia-tz":
+            zone = "Asia";
+            break;
+          case "australia-tz":
+            if (area == "Adelaide" || area == "Brisbane") {
+              zone = "Australia";
+              break;
+            } else {
+              zone = "Pacific";
               break;
             }
         }
@@ -88,7 +94,7 @@ regionSelection.forEach((region) =>
     );
   })
 );
-
+// if a selected TZ already exists, it deletes the respective div
 function checkSelectedTZExists() {
   const newDiv = document.querySelector(".new-clock");
   const newDivTimeWrap = document.querySelector(".new-tz-clock");
@@ -97,11 +103,7 @@ function checkSelectedTZExists() {
     clearInterval(live);
   }
 }
-function menuToggle() {
-  const burgerBtn = document.querySelector(".burger");
-  burgerBtn.click();
-}
-
+// creates the necessary elements to accommodate for the selected tz
 function createElements() {
   const hourWrapper = document.querySelector(".wrapper");
   // new elements
@@ -136,6 +138,7 @@ function createElements() {
   newDivTimeWrap.appendChild(delimiterMinutes);
   newDivTimeWrap.appendChild(spanSeconds);
 }
+// adjusts layout based on whether a selected tz already exists
 function adjustLayout() {
   const hourWrapper = document.querySelector(".wrapper");
   const utcOriginalWrapper = document.querySelector(".selected-clock");
@@ -145,7 +148,7 @@ function adjustLayout() {
     return;
   }
 }
-
+// parses selected tz in 24hr format and splits it, passing it to each respective span
 function selectedTimezone(zone, area) {
   const selectedHour = document.querySelector(".hours-new");
   const selectedMinutes = document.querySelector(".minutes-new");
@@ -161,6 +164,7 @@ function selectedTimezone(zone, area) {
   selectedSeconds.innerText = currentSelectedTZString.substring(4, 6);
   const areaEdited = String(area).replace(/_/g, " ");
   timezoneText.innerText = `${areaEdited}, ${zone}`;
+  timezoneText.style.color = "#fc6e20";
 }
 
 function openMenu() {
@@ -168,7 +172,9 @@ function openMenu() {
   headerWrapper.classList.toggle("nav-full-active");
   logoHeader.classList.toggle("logo-header-inactive");
 }
+// Hour Functions
 
+// fetches current local timezone in 24hr format
 function current() {
   update = setInterval(function () {
     let currentTime = DateTime.local()
@@ -180,6 +186,7 @@ function current() {
       (currentSeconds.innerText = currentTime.substring(4, 6));
   }, 1000);
 }
+// fetches current gmt timezone in 24hr format
 function gmt() {
   update = setInterval(function () {
     let currentUTC = DateTime.now()
@@ -192,7 +199,7 @@ function gmt() {
       (utcSeconds.innerText = currentUTC.substring(4, 6));
   }, 1000);
 }
-
+// fetches EDT tz in 24hr format and sets the rotation for the clock
 function edt() {
   update = setInterval(function () {
     const currentEDT = DateTime.now().setZone("America/New_York");
@@ -215,7 +222,7 @@ function edt() {
     displayEDT.innerText = currentEDTString;
   }, 1000);
 }
-
+// fetches JST tz in 24hr format and sets the rotation for the clock
 function jst() {
   update = setInterval(function () {
     const currentJST = DateTime.now().setZone("Asia/Tokyo");
