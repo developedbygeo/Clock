@@ -164,7 +164,6 @@ function selectedTimezone(zone, area) {
   selectedSeconds.innerText = currentSelectedTZString.substring(4, 6);
   const areaEdited = String(area).replace(/_/g, " ");
   timezoneText.innerText = `${areaEdited}, ${zone}`;
-  timezoneText.style.color = "#fc6e20";
 }
 
 function openMenu() {
