@@ -111,13 +111,20 @@
   .new-tz {
     color: $special-clr;
   }
+  .edt-time-now,
+  .jst-time-now {
+    letter-spacing: 0.25rem;
+  }
+  .line {
+    background: $alt-line-clr;
+  }
 }
 @media screen and (min-width: 768px) and (max-width: 900px) {
   header {
-    top: 25%;
+    top: 19%;
   }
   footer {
-    top: 71%;
+    top: 78%;
   }
 }
 @media screen and (min-width: 768px) and (min-height: 1200px) {
@@ -219,11 +226,17 @@
   }
 }
 @media screen and (min-width: 1423px) and (max-width: 1499px) {
+  html {
+    font-size: 78%;
+  }
   .nav-full-active {
     height: 86.3%;
   }
 }
 @media screen and (min-width: 1500px) {
+  html {
+    font-size: 80%;
+  }
   .nav-full-active {
     height: 93%;
   }
@@ -239,10 +252,10 @@
 }
 @media screen and (min-width: 901px) and (max-width: 1000px) {
   header {
-    top: 21%;
+    top: 13%;
   }
   footer {
-    top: 74%;
+    top: 83%;
   }
 }
 @media screen and (min-width: 1001px) and (max-width: 1100px) {
@@ -250,10 +263,10 @@
     font-size: 53%;
   }
   header {
-    top: 19%;
+    top: 9%;
   }
   footer {
-    top: 78%;
+    top: 87%;
   }
   main {
     height: 50vh;
@@ -271,10 +284,10 @@
     font-size: 59%;
   }
   header {
-    top: 16%;
+    top: 5%;
   }
   footer {
-    top: 81%;
+    top: 91%;
   }
   main {
     height: 60vh;
@@ -289,10 +302,10 @@
 }
 @media screen and (min-width: 1150px) and (max-width: 1199px) {
   header {
-    top: 13%;
+    top: 3%;
   }
   footer {
-    top: 83%;
+    top: 93%;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -300,10 +313,10 @@
     font-size: 62.5%;
   }
   header {
-    top: 13%;
+    top: 2%;
   }
   footer {
-    top: 84%;
+    top: 95%;
   }
   main {
     height: 60vh;
@@ -318,15 +331,15 @@
 }
 @media screen and (min-width: 1350px) and (max-width: 1499px) {
   header {
-    top: 7%;
+    top: 2%;
   }
   footer {
-    top: 89%;
+    top: 95%;
   }
 }
 @media screen and (min-width: 1500px) {
   html {
-    font-size: 68%;
+    font-size: 70%;
   }
   header {
     top: 3%;
