@@ -42,7 +42,6 @@ regionSelection.forEach((region) =>
     options.forEach((option) =>
       // sets zone based on the area selection / select value
       option.addEventListener("click", (e) => {
-        const burgerBtn = document.querySelector(".burger");
         const area = e.target.value;
         const zoneMenu = option.parentElement.name;
         let zone;
@@ -87,9 +86,7 @@ regionSelection.forEach((region) =>
         live = setInterval(() => {
           selectedTimezone(zone, area);
         }, 1000);
-        setTimeout(function () {
-          burgerBtn.click();
-        }, 600);
+        checkMenu(e.target);
       })
     );
   })
@@ -164,6 +161,14 @@ function selectedTimezone(zone, area) {
   selectedSeconds.innerText = currentSelectedTZString.substring(4, 6);
   const areaEdited = String(area).replace(/_/g, " ");
   timezoneText.innerText = `${areaEdited}, ${zone}`;
+}
+// toggles the menu upon selection with a 600ms delay
+function checkMenu(target) {
+  if (target.classList.contains("selected-option")) {
+    setTimeout(function () {
+      burgerToggle.click();
+    }, 600);
+  }
 }
 
 function openMenu() {
