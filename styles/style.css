@@ -60,7 +60,7 @@ header .logo-header {
   font-weight: 400;
   height: 100%;
   margin: auto;
-  margin-left: 1.8rem;
+  margin-left: 2.3rem;
   letter-spacing: 0.2rem;
 }
 
@@ -331,6 +331,10 @@ main {
   margin: auto;
 }
 
+.new-tz {
+  color: #fc6e20;
+}
+
 footer {
   background: #1b1b1b;
   background: linear-gradient(0deg, #282626 0%, #2a2a2a 47%, #323232 100%);
@@ -517,5 +521,125 @@ footer {
 .region-selector:hover::before {
   width: 100%;
   left: 0;
+}
+
+@media screen and (min-width: 240px) and (max-width: 302px) {
+  html {
+    font-size: 29%;
+  }
+  .logo-header {
+    margin-left: 2.7rem;
+  }
+}
+
+@media screen and (min-width: 303px) and (max-width: 319px) {
+  html {
+    font-size: 36.5%;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  html {
+    font-size: 52.5%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    font-size: 55.5%;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 2rem;
+  }
+  .text-wrapper p {
+    font-size: 1.8rem;
+  }
+  .burgerline {
+    width: 3rem;
+    height: 0.5rem;
+  }
+  .footer-text p {
+    font-weight: 2rem;
+  }
+  .footer-icon i {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .time-wrap {
+    width: 65%;
+  }
+  .clock {
+    height: 25rem;
+    width: 25rem;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  html {
+    font-size: 59%;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  html {
+    font-size: 62.5%;
+  }
+  .logo-header h1 {
+    font-size: 3rem;
+  }
+  .clock {
+    width: 25rem;
+    height: 25rem;
+  }
+  .header-wrapper h1 {
+    font-size: 2.5rem;
+  }
+  .header-wrapper p {
+    font-size: 1.8rem;
+  }
+  .info-wrap p {
+    font-size: 2.5rem;
+  }
+  .area-wrapper a {
+    font-size: 2.5rem;
+  }
+  .options select {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  html {
+    font-size: 65%;
+  }
+  .time-wrap {
+    width: 60%;
+  }
+  .text-wrapper p {
+    margin-top: 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1550px) {
+  .time-wrap {
+    width: 55%;
+  }
+}
+
+@media screen and (min-width: 1700px) {
+  html {
+    font-size: 67%;
+  }
+}
+
+@media screen and (min-width: 2000px) {
+  .time-wrap {
+    width: 46%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
