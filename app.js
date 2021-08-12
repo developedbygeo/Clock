@@ -11,9 +11,13 @@ const handSecEDT = document.querySelector(".second-hand-edt");
 const handHourJST = document.querySelector(".hour-hand-jst");
 const handMinJST = document.querySelector(".minute-hand-jst");
 const handSecJST = document.querySelector(".second-hand-jst");
+const handHourMSK = document.querySelector(".hour-hand-msk");
+const handMinMSK = document.querySelector(".minute-hand-msk");
+const handSecMSK = document.querySelector(".second-hand-msk");
 // Displays
 const displayEDT = document.querySelector(".edt-time-now");
 const displayJST = document.querySelector(".jst-time-now");
+const displayMSK = document.querySelector(".msk-time-now");
 // Drop-down
 const regionSelection = document.querySelectorAll(".region-selector");
 // Library
@@ -30,6 +34,7 @@ window.addEventListener("load", current);
 window.addEventListener("load", gmt);
 window.addEventListener("load", edt);
 window.addEventListener("load", jst);
+window.addEventListener("load", msk);
 
 burgerToggle.addEventListener("click", openMenu);
 
@@ -247,5 +252,24 @@ function jst() {
     handMinJST.style.transform = `rotate(${minuteDeg}deg)`;
     handHourJST.style.transform = `rotate(${hourDeg}deg)`;
     displayJST.innerText = currentJSTString;
+  }, 1000);
+}
+// fetches MSK tz in 24hr format and sets the rotation for the clock
+function msk() {
+  update = setInterval(function () {
+    const currentMSK = DateTime.now().setZone("Europe/Moscow");
+    const currentMSKString = currentMSK.toLocaleString(
+      DateTime.TIME_24_WITH_SECONDS
+    );
+    const seconds = currentMSK.second;
+    const minutes = currentMSK.minute;
+    const hours = currentMSK.hour;
+    const secondDeg = (seconds / 60) * 360 + 90;
+    const minuteDeg = (minutes / 60) * 360 + (seconds / 60) * 6 + 90;
+    const hourDeg = (hours / 12) * 360 + (minutes / 60) * 30 + 90;
+    handSecMSK.style.transform = `rotate(${secondDeg}deg)`;
+    handMinMSK.style.transform = `rotate(${minuteDeg}deg)`;
+    handHourMSK.style.transform = `rotate(${hourDeg}deg)`;
+    displayMSK.innerText = currentMSKString;
   }, 1000);
 }
