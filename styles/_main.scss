@@ -108,7 +108,8 @@ main {
   }
 }
 .clock-edt,
-.clock-jst {
+.clock-jst,
+.clock-msk {
   @include flex(center, center, row);
   background: $jet;
 }
@@ -118,6 +119,14 @@ main {
 .clock-est {
   grid-area: 1/2/1/2;
 }
+.clock-msk,
+.msk-div {
+  display: none;
+}
+.timezone {
+  color: $more-orange;
+}
+
 .clock {
   width: 19rem;
   height: 19rem;
