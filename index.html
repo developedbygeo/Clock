@@ -217,6 +217,21 @@
             </div>
           </div>
         </div>
+        <div class="clock-msk">
+          <div class="clock">
+            <div class="outer">
+              <div class="line line1"></div>
+              <div class="line line2"></div>
+              <div class="line line3"></div>
+              <div class="line line4"></div>
+            </div>
+            <div class="inner">
+              <div class="hand hour-hand hour-hand-msk"></div>
+              <div class="hand minute-hand minute-hand-msk"></div>
+              <div class="hand second-hand second-hand-msk"></div>
+            </div>
+          </div>
+        </div>
         <div class="clock-jst">
           <div class="clock">
             <div class="outer">
@@ -232,12 +247,16 @@
             </div>
           </div>
         </div>
-        <div class="text-wrapper">
-          <p>New York (EDT)</p>
+        <div class="text-wrapper edt-div">
+          <p>New York (<span class="timezone">EDT</span>)</p>
           <p class="edt-time-now"></p>
         </div>
-        <div class="text-wrapper">
-          <p>Tokyo (JST)</p>
+        <div class="text-wrapper msk-div">
+          <p>Moscow (<span class="timezone">MSK</span>)</p>
+          <p class="msk-time-now"></p>
+        </div>
+        <div class="text-wrapper jst-div">
+          <p>Tokyo (<span class="timezone">JST</span>)</p>
           <p class="jst-time-now"></p>
         </div>
       </section>
