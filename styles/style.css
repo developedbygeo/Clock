@@ -184,7 +184,8 @@ main {
 }
 
 .clock-edt,
-.clock-jst {
+.clock-jst,
+.clock-msk {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -198,6 +199,15 @@ main {
 
 .clock-est {
   grid-area: 1/2/1/2;
+}
+
+.clock-msk,
+.msk-div {
+  display: none;
+}
+
+.timezone {
+  color: #fd772e;
 }
 
 .clock {
@@ -523,6 +533,12 @@ footer {
   left: 0;
 }
 
+@media screen and (max-width: 240px) {
+  .options select {
+    margin-top: 0.5rem;
+  }
+}
+
 @media screen and (min-width: 240px) and (max-width: 302px) {
   html {
     font-size: 29%;
@@ -570,6 +586,9 @@ footer {
 }
 
 @media screen and (min-width: 800px) {
+  html {
+    font-size: 58.5%;
+  }
   .time-wrap {
     width: 65%;
   }
@@ -593,14 +612,37 @@ footer {
     font-size: 3rem;
   }
   .clock {
-    width: 25rem;
-    height: 25rem;
+    width: 20rem;
+    height: 20rem;
   }
   .header-wrapper h1 {
     font-size: 2.5rem;
   }
   .header-wrapper p {
     font-size: 1.8rem;
+  }
+  .other-tz {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .clock-jst {
+    grid-area: 1/3/1/4;
+  }
+  .clock-msk {
+    display: block;
+    grid-area: 1/2/1/3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  .msk-div {
+    display: block;
+  }
+  div.text-wrapper:nth-child(4) {
+    grid-area: 2/3/2/4;
+  }
+  .edt-div {
+    grid-area: 2/1/2/2;
   }
   .info-wrap p {
     font-size: 2.5rem;
@@ -613,21 +655,21 @@ footer {
   }
 }
 
-@media screen and (min-width: 1440px) {
-  html {
-    font-size: 65%;
-  }
+@media screen and (min-width: 1200px) {
   .time-wrap {
-    width: 60%;
+    width: 45%;
   }
+}
+
+@media screen and (min-width: 1440px) {
   .text-wrapper p {
-    margin-top: 1.5rem;
+    margin-top: 1rem;
   }
 }
 
 @media screen and (min-width: 1550px) {
   .time-wrap {
-    width: 55%;
+    width: 40%;
   }
 }
 
@@ -635,11 +677,8 @@ footer {
   html {
     font-size: 67%;
   }
-}
-
-@media screen and (min-width: 2000px) {
-  .time-wrap {
-    width: 46%;
+  .text-wrapper p {
+    margin-top: 0.6rem;
   }
 }
 /*# sourceMappingURL=style.css.map */
