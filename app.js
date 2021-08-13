@@ -91,7 +91,7 @@ regionSelection.forEach((region) =>
         live = setInterval(() => {
           selectedTimezone(zone, area);
         }, 1000);
-        openMenu();
+        closeMenu();
       })
     );
   })
@@ -171,6 +171,11 @@ function openMenu() {
   areaWrapper.classList.toggle("nav-full-active");
   headerWrapper.classList.toggle("nav-full-active");
   logoHeader.classList.toggle("logo-header-inactive");
+}
+function closeMenu() {
+  areaWrapper.classList.remove("nav-full-active");
+  headerWrapper.classList.remove("nav-full-active");
+  logoHeader.classList.remove("logo-header-inactive");
 }
 // Hour Functions
 
