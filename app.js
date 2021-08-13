@@ -30,11 +30,11 @@ const logoHeader = document.querySelector(".logo-header");
 // Interval
 let live;
 
-window.addEventListener("load", current);
-window.addEventListener("load", gmt);
-window.addEventListener("load", edt);
-window.addEventListener("load", jst);
-window.addEventListener("load", msk);
+window.addEventListener("DOMContentLoaded", current);
+window.addEventListener("DOMContentLoaded", gmt);
+window.addEventListener("DOMContentLoaded", edt);
+window.addEventListener("DOMContentLoaded", jst);
+window.addEventListener("DOMContentLoaded", msk);
 
 burgerToggle.addEventListener("click", openMenu);
 
@@ -43,12 +43,12 @@ regionSelection.forEach((region) =>
     const selectedMenu = region.nextElementSibling;
     const selectedDropdownOptions = selectedMenu.firstElementChild.options;
     selectedMenu.classList.toggle("options-active");
-    const options = document.querySelectorAll(".selected-option");
+    const options = document.querySelectorAll(".options select");
     options.forEach((option) =>
       // sets zone based on the area selection / select value
-      option.addEventListener("click", (e) => {
+      option.addEventListener("change", (e) => {
         const area = e.target.value;
-        const zoneMenu = option.parentElement.name;
+        const zoneMenu = option.parentElement.lastElementChild.name;
         let zone;
         switch (zoneMenu) {
           case "europe-tz":
@@ -91,7 +91,7 @@ regionSelection.forEach((region) =>
         live = setInterval(() => {
           selectedTimezone(zone, area);
         }, 1000);
-        checkMenu(e.target);
+        openMenu();
       })
     );
   })
@@ -151,12 +151,12 @@ function adjustLayout() {
   }
 }
 // parses selected tz in 24hr format and splits it, passing it to each respective span
-function selectedTimezone(zone, area) {
+async function selectedTimezone(zone, area) {
   const selectedHour = document.querySelector(".hours-new");
   const selectedMinutes = document.querySelector(".minutes-new");
   const selectedSeconds = document.querySelector(".seconds-new");
   const timezoneText = document.querySelector(".new-tz");
-  const currentSelectedTZ = DateTime.now().setZone(`${zone}/${area}`);
+  const currentSelectedTZ = await DateTime.now().setZone(`${zone}/${area}`);
   const currentSelectedTZString = currentSelectedTZ
     .toLocaleString(DateTime.TIME_24_WITH_SECONDS)
     .split(":")
@@ -167,15 +167,6 @@ function selectedTimezone(zone, area) {
   const areaEdited = String(area).replace(/_/g, " ");
   timezoneText.innerText = `${areaEdited}, ${zone}`;
 }
-// toggles the menu upon selection with a 600ms delay
-function checkMenu(target) {
-  if (target.classList.contains("selected-option")) {
-    setTimeout(function () {
-      burgerToggle.click();
-    }, 600);
-  }
-}
-
 function openMenu() {
   areaWrapper.classList.toggle("nav-full-active");
   headerWrapper.classList.toggle("nav-full-active");
