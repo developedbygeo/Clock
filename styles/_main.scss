@@ -67,7 +67,6 @@ main {
   height: 100%;
   width: 100%;
   margin: auto;
-  // background: lightpink;
   grid-area: 1/2/2/3;
   @include grid(1, repeat(2, 1fr));
 }
