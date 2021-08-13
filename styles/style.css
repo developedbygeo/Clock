@@ -537,6 +537,9 @@ footer {
   .options select {
     margin-top: 0.5rem;
   }
+  .options::after {
+    right: 15%;
+  }
 }
 
 @media screen and (min-width: 240px) and (max-width: 302px) {
@@ -546,11 +549,21 @@ footer {
   .logo-header {
     margin-left: 2.7rem;
   }
+  .options::after {
+    top: 36%;
+    right: 15%;
+  }
 }
 
 @media screen and (min-width: 303px) and (max-width: 319px) {
   html {
     font-size: 36.5%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .options::after {
+    right: 40%;
   }
 }
 
@@ -655,6 +668,10 @@ footer {
   }
   .options select {
     font-size: 2rem;
+    width: 60%;
+  }
+  .options::after {
+    right: 55%;
   }
 }
 
@@ -667,6 +684,9 @@ footer {
 @media screen and (min-width: 1440px) {
   .text-wrapper p {
     margin-top: 1rem;
+  }
+  .options::after {
+    right: 63%;
   }
 }
 
@@ -682,6 +702,9 @@ footer {
   }
   .text-wrapper p {
     margin-top: 0.6rem;
+  }
+  .options::after {
+    right: 67%;
   }
 }
 /*# sourceMappingURL=style.css.map */
