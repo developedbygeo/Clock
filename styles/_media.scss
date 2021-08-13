@@ -1,8 +1,9 @@
-// TODO need to adjust time-wrap for edt & jst clock p font-size (above 768px)
-// TODO also need to adjust drop down margins for width < 1.4k
 @media screen and (max-width: 240px) {
   .options select {
     margin-top: 0.5rem;
+  }
+  .options::after {
+    right: 15%;
   }
 }
 @media screen and (min-width: 240px) and (max-width: 302px) {
@@ -12,10 +13,19 @@
   .logo-header {
     margin-left: 2.7rem;
   }
+  .options::after {
+    top: 36%;
+    right: 15%;
+  }
 }
 @media screen and (min-width: 303px) and (max-width: 319px) {
   html {
     font-size: 36.5%;
+  }
+}
+@media screen and (min-width: 600px) {
+  .options::after {
+    right: 40%;
   }
 }
 @media screen and (min-width: 700px) {
@@ -124,7 +134,11 @@
   .options {
     select {
       font-size: 2rem;
+      width: 60%;
     }
+  }
+  .options::after {
+    right: 55%;
   }
 }
 @media screen and (min-width: 1200px) {
@@ -135,6 +149,9 @@
 @media screen and (min-width: 1440px) {
   .text-wrapper p {
     margin-top: 1rem;
+  }
+  .options::after {
+    right: 63%;
   }
 }
 @media screen and (min-width: 1550px) {
@@ -149,12 +166,7 @@
   .text-wrapper p {
     margin-top: 0.6rem;
   }
-  // .time-wrap {
-  //   width: 45%;
-  // }
+  .options::after {
+    right: 67%;
+  }
 }
-// @media screen and (min-width: 1900px) {
-//   .time-wrap {
-//     width: 40%;
-//   }
-// }
