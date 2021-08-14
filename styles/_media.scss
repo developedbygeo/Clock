@@ -52,9 +52,6 @@
     width: 3rem;
     height: 0.5rem;
   }
-  .footer-text p {
-    font-weight: 2rem;
-  }
   .footer-icon i {
     font-size: 2.5rem;
   }
@@ -137,11 +134,18 @@
   .options::after {
     right: 55%;
   }
+  .footer-text {
+    p {
+      font-size: 1.4rem;
+    }
+  }
+  .footer-icon {
+    i {
+      font-size: 1.8rem;
+    }
+  }
 }
 @media screen and (min-width: 1440px) {
-  .text-wrapper p {
-    margin-top: 1rem;
-  }
   .options::after {
     right: 63%;
   }
