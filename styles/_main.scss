@@ -7,7 +7,7 @@ header {
     rgba(42, 42, 42, 1) 50%,
     rgba(50, 50, 50, 1) 100%
   );
-  color: $linen;
+  color: $cultured;
   .logo-header {
     @include flex(flex-start, center, row);
     font-family: "Abril Fatface", cursive;
@@ -39,7 +39,7 @@ header {
 .burgerline {
   width: 2rem;
   height: 0.4rem;
-  background: $linen;
+  background: $cultured;
   margin-bottom: 0.2rem;
   pointer-events: none;
 }
@@ -79,12 +79,12 @@ main {
     margin-top: 1rem;
     font-size: 1.4rem;
     font-style: italic;
-    color: $lighter-orange;
+    color: $linen;
     letter-spacing: 0.1rem;
   }
 }
 .time-wrap {
-  color: $linen;
+  color: $cultured;
   width: 75%;
   height: 40%;
   margin-inline: auto;
@@ -285,7 +285,7 @@ footer {
 .footer-text {
   letter-spacing: 0.1rem;
   font-style: italic;
-  color: $linen;
+  color: $cultured;
   .name {
     margin-left: 0.3rem;
   }
@@ -295,6 +295,6 @@ footer {
   margin-left: 1rem;
   i {
     pointer-events: none;
-    color: $linen;
+    color: $cultured;
   }
 }
