@@ -139,7 +139,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 
 .clock-numbered .info-wrap {
@@ -156,13 +156,17 @@ main {
   height: 40%;
   margin-inline: auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
 }
 
 .time-wrap span {
   font-size: 4rem;
+}
+
+.time-wrap .delimiter {
+  margin-inline: 3rem;
 }
 
 .other-tz {
@@ -602,9 +606,6 @@ footer {
   html {
     font-size: 58.5%;
   }
-  .time-wrap {
-    width: 65%;
-  }
   .clock {
     height: 25rem;
     width: 25rem;
@@ -675,24 +676,12 @@ footer {
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .time-wrap {
-    width: 45%;
-  }
-}
-
 @media screen and (min-width: 1440px) {
   .text-wrapper p {
     margin-top: 1rem;
   }
   .options::after {
     right: 63%;
-  }
-}
-
-@media screen and (min-width: 1550px) {
-  .time-wrap {
-    width: 40%;
   }
 }
 

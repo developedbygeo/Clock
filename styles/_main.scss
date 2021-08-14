@@ -74,7 +74,7 @@ main {
   height: 100%;
   width: 100vw;
   text-align: center;
-  @include flex(center, center, column);
+  @include flex(center, center, column-reverse);
   .info-wrap {
     margin-top: 1rem;
     font-size: 1.4rem;
@@ -88,9 +88,12 @@ main {
   width: 75%;
   height: 40%;
   margin-inline: auto;
-  @include flex(space-evenly, center, row);
+  @include flex(center, center, row);
   span {
     font-size: 4rem;
+  }
+  .delimiter {
+    margin-inline: 3rem;
   }
 }
 .other-tz {
