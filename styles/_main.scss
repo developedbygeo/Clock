@@ -294,7 +294,11 @@ footer {
   font-size: 2rem;
   margin-left: 1rem;
   i {
-    pointer-events: none;
+    font-size: 2rem;
     color: $cultured;
+    transition: all 250ms ease-in-out;
+  }
+  i:hover {
+    transform: rotate(360deg) scale(1.1) !important;
   }
 }

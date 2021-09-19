@@ -391,8 +391,13 @@ footer {
 }
 
 .footer-icon i {
-  pointer-events: none;
+  font-size: 2rem;
   color: #eeedf0;
+  transition: all 250ms ease-in-out;
+}
+
+.footer-icon i:hover {
+  transform: rotate(360deg) scale(1.1) !important;
 }
 
 .menu {
